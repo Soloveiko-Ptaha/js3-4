@@ -1,49 +1,28 @@
 var data = {
 	'pageTitle': ' Тест по программированию',
 	'categories': [{
-		'categoryName': '1. Вопрос №1',
-		'categoryList': [{
-			'id': 'check11',
-			'title': 'Вариант ответа № 1'
-		},
-		{
-			'id': 'check12',
-			'title': 'Вариант ответа № 2'
-		},
-				{
-			'id': 'check13',
-			'title': 'Вариант ответа № 3'
-		}]
+		'categoryName': 'Вопрос №1',
+		'categoryList': [
+			'Вариант ответа №1',
+			'Вариант ответа №2',
+			'Вариант ответа №3'
+		],
 	},
 	{
-		'categoryName': '2. Вопрос №2',
-		'categoryList': [{
-			'id': 'check21',
-			'title': 'Вариант ответа № 1'
-		},
-		{
-			'id': 'check22',
-			'title': 'Вариант ответа № 2'
-		},
-				{
-			'id': 'check23',
-			'title': 'Вариант ответа № 3'
-		}]
+		'categoryName': 'Вопрос №2',
+		'categoryList': [
+			'Вариант ответа №1',
+			'Вариант ответа №2',
+			'Вариант ответа №3'
+		],
 	},
 	{
-		'categoryName': '3. Вопрос №3',
-		'categoryList': [{
-			'id': 'check31',
-			'title': 'Вариант ответа № 1'
-		},
-		{
-			'id': 'check32',
-			'title': 'Вариант ответа № 2'
-		},
-				{
-			'id': 'check33',
-			'title': 'Вариант ответа № 3'
-		}]	
+		'categoryName': 'Вопрос №3',
+		'categoryList': [
+			'Вариант ответа №1',
+			'Вариант ответа №2',
+			'Вариант ответа №3'
+		],
 	}],
 }
 
@@ -68,7 +47,7 @@ var page = {
 			document.querySelector('form').appendChild(categoryBox);
 
 			var titleCategory = document.createElement('h3');
-			titleCategory.innerHTML = data.categories[i].categoryName;
+			titleCategory.innerHTML = (i+1) + '. ' + data.categories[i].categoryName;
 			categoryBox.appendChild(titleCategory);
 
 			var listContainer = document.createElement('ul');
@@ -81,12 +60,12 @@ var page = {
 				listContainer.appendChild(listItem);
 
 				var listLabel = document.createElement('label');
-				listLabel.innerHTML = data.categories[i].categoryList[j].title;
-				listLabel.setAttribute('for', data.categories[i].categoryList[j].id);
+				listLabel.innerHTML = data.categories[i].categoryList[j];
+				listLabel.setAttribute('for', (String(i+1) + String(j+1))); //data.categories[i].categoryList[j].id
 				listItem.appendChild(listLabel);
 
 				var listInput = document.createElement('input');
-				listInput.setAttribute('id', data.categories[i].categoryList[j].id);
+				listInput.setAttribute('id', (String(i+1) + String(j+1))); //data.categories[i].categoryList[j].id
 				listInput.setAttribute('type', 'checkbox');
 				listItem.insertBefore(listInput, listLabel);
 			}
